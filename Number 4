@@ -1,3 +1,8 @@
+from random import *
+print('---4---')
+f=open('C:\\Users\\student\\Desktop\\students.csv', encoding='utf8')
+a=f.readlines()
+shapka=a.pop(0)
 def meowlog(a,i):
     """
     Функция для создания логина пользователя
@@ -15,21 +20,10 @@ def meowpas():
     shuffle(p)
     p = ''.join(p)
     return p
-print('---4---')
-dlog={}
-f=open('C:\\Users\\student\\Desktop\\students.csv', encoding='utf8')
-a=f.readlines()
-shapka=a.pop(0)
 for i in range(len(a)):
     a[i]=a[i].strip().split(',')
-    a[i][0]=int(a[i][0])
-    a[i][2] = int(a[i][2])
-    if a[i][-1]=='None':
-        a[i][-1]=0
-    if a[i][4]!='None':
-        a[i][4]=int(a[i][4])
 for i in range(len(a)):
-    print(a[i],meowlog(a,i))
+    print(a[i],meowlog(a,i),meowpas())
 f=open('C:\\Users\\student\\Desktop\\students_password.csv','w', encoding='utf8')
 f.write(shapka.strip()+',login,password\n')
 for x in a:
