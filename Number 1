@@ -32,3 +32,4 @@ f.writelines('id,Name,titleProjiect_id,class,score\n')
 for x in a:
     f.writelines(','.join(x)+'\n')
 f.close()
+print(meow)
