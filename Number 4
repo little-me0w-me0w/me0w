@@ -1,30 +1,40 @@
 from random import *
-print('---4---')
-f=open('C:\\Users\\student\\Desktop\\students.csv', encoding='utf8')
-a=f.readlines()
-shapka=a.pop(0)
-def meowlog(a,i):
+
+def login(x):
     """
+
     Функция для создания логина пользователя
-    x - все данные о пользователе
-    return - логин вида Фамилия_ИО
+    x-все данные о пользователе
+    return-логин вида Фамилия_ИО
     """
-    f, i, o = a[i][1].split()
-    name = f'{f}__{i[0]}{o[0]}'
-    return name
-def meowpas():
-    A='QWERTYUIOPASDFGHJKLZXCVBNM'
-    a='qwertyuiopasdfghjklzxcvbnm'
+    f,i,o=x[1].split()
+    ln=f'{f}_{i[0]}{o[0]}'
+    return ln
+
+def password():
+    """
+    Функция для создания пароля ползователя
+    A,a,c - списки значений, которые могут использоваться в пароле
+    return - пароль из 8 символов
+
+    """
+    A='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    a=A.lower()
     c='0123456789'
-    p=choice(A),choice(A),choice(A),choice(a),choice(a),choice(a),choice(c),choice(c)
+    p=[choice(A),choice(A),choice(A),choice(a),choice(a),choice(a), choice(c), choice(c)]
     shuffle(p)
-    p = ''.join(p)
+    p=''.join(p)
+
     return p
+
+a=open('students(1).csv', encoding='utf8').readlines()
+shp=a.pop(0)
 for i in range(len(a)):
     a[i]=a[i].strip().split(',')
-for i in range(len(a)):
-    print(a[i],meowlog(a,i),meowpas())
-f=open('C:\\Users\\student\\Desktop\\students_password.csv','w', encoding='utf8')
-f.write(shapka.strip()+',login,password\n')
+
+    a[i]+=[login(a[i]),password()]
+
+f=open('students(1)_password.scv', 'w', encoding='utf8')
+f.write(shp. strip()+',login,password\n')
 for x in a:
     f.write(','.join(x)+'\n')
